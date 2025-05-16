@@ -26,7 +26,7 @@ export default function VCard({ details, showCardNumber }: Props) {
   return (
     <div
       className={`text-white p-6 md:p-7 bg-green rounded-xl transition-all duration-300 ${
-        details.status === "frozen" ? "opacity-50 grayscale" : ""
+        details.status === "frozen" ? "grayscale" : ""
       }`}
     >
       <img src={LogoWhite} alt="Eye" className="my-0 mr-0 mx-auto" />

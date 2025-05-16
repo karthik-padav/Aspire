@@ -56,7 +56,7 @@ export default function GenerateCard() {
       >
         <img src={Plus} alt="Plus" className="mr-2 hidden md:block" />
         <img src={PlusSkyBlue} alt="Plus" className="mr-2 md:hidden" />
-        New card
+        New Card
       </button>
 
       <Modal

@@ -7,19 +7,18 @@ import { useSelector } from "react-redux";
 import type { RootState } from "@/components/lib/redux/store";
 
 export default function Cards() {
-  const handleClick = () => {
-    console.log("Div1 Clicked!");
-  };
-
   const { currentCard } = useSelector((state: RootState) => state.commonSlice);
+
+  const { data: debitCardDetails } = useSelector(
+    (state: RootState) => state.cards
+  );
+  const currentCardDetails = debitCardDetails.find((i) => i.id === currentCard);
+
   return (
     <>
       {/* Mobile Layout Start*/}
       <div className="relative h-screen w-full overflow-hidden md:hidden bg-navyBlue ">
-        <div
-          className="fixed top-0 left-0 w-full h-[75vh] bg-navyBlue text-white z-10 p-6"
-          onClick={handleClick}
-        >
+        <div className="fixed top-0 left-0 w-full h-[75vh] bg-navyBlue text-white z-10 p-6">
           <img src={MLogoGreen} alt="aspire" className="my-0 ml-auto mr-0" />
           <CardHeader />
           <CardTabBody />
@@ -28,14 +27,14 @@ export default function Cards() {
         <div className="absolute top-0 left-0 w-full h-full overflow-y-scroll z-20 pointer-events-none">
           <div className="h-[75vh]" />
           <div className="pointer-events-auto bg-white h-auto rounded-t-3xl overflow-hidden pb-20">
-            {currentCard && (
-              <div className="px-6 py-5 bg-pastelBlue rounded-lg">
-                <ActionComponent cardDetails={currentCard} />
+            {currentCardDetails && (
+              <div className="p-5 bg-pastelBlue rounded-lg">
+                <ActionComponent cardDetails={currentCardDetails} />
               </div>
             )}
-            {currentCard && (
+            {currentCardDetails && (
               <div className="p-6">
-                <CardDetails cardDetails={currentCard} />
+                <CardDetails cardDetails={currentCardDetails} />
               </div>
             )}
           </div>

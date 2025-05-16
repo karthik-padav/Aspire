@@ -34,7 +34,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               key={index}
               className={`${
                 i.url === location.pathname ? "text-green" : "text-black"
-              } flex flex-col items-center gap-1 cursor-pointer`}
+              } flex flex-col items-center justify-between gap-1 cursor-pointer`}
             >
               <img src={i.m_icon} className="" alt={i.title} />
               <p className="text-xs">{i.title}</p>

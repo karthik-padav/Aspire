@@ -5,7 +5,7 @@ import Layout from "./components/pages/Layout";
 
 function App() {
   return (
-    <div className="text-black font-open">
+    <div className="text-black font-open container mx-auto my-0">
       <BrowserRouter>
         <Routes>
           <Route

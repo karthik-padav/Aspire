@@ -34,9 +34,9 @@ export default function Accordion({
           <p className="text-navyBlue text-sm">{title}</p>
         </div>
         {isOpen ? (
-          <img src={DownArrow} alt="Down Arrow" />
-        ) : (
           <img src={UpArrow} alt="Up Arrow" />
+        ) : (
+          <img src={DownArrow} alt="Down Arrow" />
         )}
       </div>
 

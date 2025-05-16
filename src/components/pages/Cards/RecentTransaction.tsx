@@ -5,6 +5,7 @@ import type { AppDispatch, RootState } from "@/components/lib/redux/store";
 import { fetchTransactionsByCardId } from "@/components/lib/redux/transactionsSlice";
 import { constants } from "@/components/lib/constants";
 import NextArrow from "@/assets/Next.svg";
+import BusinessAndFinance from "@/assets/BusinessAndFinance.svg";
 
 export default function RecentTransaction({
   cardDetails,
@@ -35,9 +36,9 @@ export default function RecentTransaction({
               return (
                 <div
                   key={item.id}
-                  className={`flex items-center justify-between border-b py-4 border-grey5`}
+                  className={`flex items-start justify-between border-b py-4 border-grey5`}
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-start">
                     {catg?.icon && (
                       <div
                         className="p-4 rounded-full mr-3"
@@ -49,6 +50,17 @@ export default function RecentTransaction({
                     <div className="text-sm">
                       <p className="text-navyBlue">{item.title}</p>
                       <p className="text-darkGrey">{item.date}</p>
+                      <div className="mt-2 flex items-center">
+                        <div className="mr-2 bg-royalBlue inline-block p-2 rounded-xl">
+                          <img
+                            src={BusinessAndFinance}
+                            alt="Business And Finance"
+                          />
+                        </div>
+                        <span className="text-xs text-royalBlue">
+                          {item.description}
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-center">

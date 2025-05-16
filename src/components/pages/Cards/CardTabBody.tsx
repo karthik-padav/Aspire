@@ -30,6 +30,8 @@ export default function CardTabBody() {
 
   const { currentCard } = useSelector((state: RootState) => state.commonSlice);
 
+  const currentCardDetails = debitCardDetails.find((i) => i.id === currentCard);
+
   useEffect(() => {
     dispatch(fetchCards());
   }, [dispatch]);
@@ -57,19 +59,19 @@ export default function CardTabBody() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
                 <button
-                  className="flex justify-center items-center mt-0 ml-auto mr-0 md:pb-3 pb-4 md:px-0 px-2 md:pt-0 pt-1 -mb-3 md:mb-0 bg-white md:bg-transparent rounded-t-md"
+                  className="flex justify-center items-center mt-0 ml-auto mr-0 md:pb-3 pb-4 md:px-0 px-2 md:pt-0 pt-1 -mb-3 md:mb-0 bg-white md:bg-transparent rounded-md"
                   onClick={() => toggleCardNumber(!showCardNumber)}
                 >
                   <img src={Eye} alt="Eye" />
                   <span className="text-xs text-center text-green ml-1">
-                    Show Card Number
+                    {showCardNumber ? "Hide" : "Show"} Card Number
                   </span>
                 </button>
                 {debitCardDetails.length > 0 && (
                   <div className="-mx-2">
                     <Carousel
                       setActiveIndex={(i) =>
-                        dispatch(setCurrectCard(debitCardDetails[i]))
+                        dispatch(setCurrectCard(debitCardDetails[i].id))
                       }
                       items={debitCardDetails.map((i) => (
                         <div className="relative px-2" key={i.id}>
@@ -84,15 +86,15 @@ export default function CardTabBody() {
                     />
                   </div>
                 )}
-                {currentCard && (
-                  <div className="hidden md:block px-7 py-5 bg-pastelBlue mt-8 rounded-lg">
-                    <ActionComponent cardDetails={currentCard} />
+                {currentCardDetails && (
+                  <div className="hidden md:block p-6 bg-pastelBlue mt-8 rounded-lg">
+                    <ActionComponent cardDetails={currentCardDetails} />
                   </div>
                 )}
               </div>
-              {currentCard && (
+              {currentCardDetails && (
                 <div className="hidden md:block ">
-                  <CardDetails cardDetails={currentCard} />
+                  <CardDetails cardDetails={currentCardDetails} />
                 </div>
               )}
             </div>

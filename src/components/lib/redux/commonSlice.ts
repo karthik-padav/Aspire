@@ -1,8 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { ICardDetails } from "../interface";
 
 interface CommonState {
-  currentCard: ICardDetails | null;
+  currentCard: string | null;
 }
 
 const initialState: CommonState = {
@@ -13,7 +12,7 @@ const commonSlice = createSlice({
   name: "cards",
   initialState,
   reducers: {
-    setCurrectCard(state, action: PayloadAction<ICardDetails | null>) {
+    setCurrectCard(state, action: PayloadAction<string | null>) {
       state.currentCard = action.payload;
     },
   },
