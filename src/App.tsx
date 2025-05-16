@@ -2,10 +2,28 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cards from "./components/pages/Cards";
 import Layout from "./components/pages/Layout";
+import { Helmet } from "react-helmet";
 
+const gaId = import.meta.env.VITE_GA_ID;
 function App() {
   return (
     <div className="text-black font-open container mx-auto my-0">
+      {gaId && (
+        <Helmet>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+          ></script>
+          <script>
+            {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaId}');
+          `}
+          </script>
+        </Helmet>
+      )}
       <BrowserRouter>
         <Routes>
           <Route
