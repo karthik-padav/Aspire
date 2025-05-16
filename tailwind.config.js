@@ -1,0 +1,40 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        AvenirNextDemi: ['"Avenir Next Demi"', "sans-serif"],
+        AvenirNextRegular: ['"Avenir Next Regular"', "sans-serif"],
+        sans: ['"Open Sans"', "ui-sans-serif", "system-ui"],
+        open: ['"Open Sans"', "sans-serif"],
+      },
+      colors: {
+        navyBlue: "#0C365A",
+        grey1: "#0000001F",
+        green: "#01D167",
+        grey2: "#072A441F",
+        grey3: "#00000014",
+        white1: "#FCFCFC",
+        pastelBlue: "#EDF3FF",
+        cream: "#00000005",
+        royalBlue: "#325BAF",
+        cream1: "#F5F9FF",
+        grey4: "#0000000A",
+        grey5: "#F5F5F5",
+        skyBlue1: "#23CEFD",
+        pistaGreen1: "#EDFFF5",
+        grey6: "#0000000F",
+        pistaGreen2: "#DDFFEC",
+        grey7: "#F0F0F0",
+        skyBlue2: "#009DFF1A",
+        darkGrey: "#AAAAAA",
+        black: "#222222",
+        pistaGreen3: "#00D6B51A",
+        babyPink: "#F251951A",
+        grey8: "#E5E5E5",
+      },
+    },
+  },
+  plugins: [],
+};

@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Avenir Next Demi';
+    src: url('./fonts/avenir-next-demi-bold.ttf') format('truetype');
+    /* font-weight: 700;
+    font-style: normal; */
+  }
+  @font-face {
+      font-family: 'Avenir Next Regular';
+      src: url('./fonts/avenir-next-regular.ttf') format('truetype');
+      /* font-weight: 700;
+      font-style: normal; */
+    }
