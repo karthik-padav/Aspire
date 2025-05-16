@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   return (
     <div className="flex min-h-screen">
-      <div className="max-w-[340px] p-12 bg-navyBlue hidden md:block">
+      <div className="max-w-[340px] py-12 px-10 bg-navyBlue hidden md:block">
         <img src={logo} alt="aspire" />
         <p className="text-base text-white opacity-30 mt-5">
           Trusted way of banking for 3,000+ SMEs and startups in Singapore

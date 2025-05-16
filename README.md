@@ -12,6 +12,8 @@
 
 ## 🧱 Tech Stack
 
+![App Screenshot](./screenshot.png)
+
 - React.js
 - Tailwind CSS
 - TypeScript
