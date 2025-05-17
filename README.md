@@ -12,7 +12,7 @@
 - Newly created cards are dynamically added to the carousel alongside existing ones.
 - Cards can be frozen or unfrozen via confirmation modals. Frozen cards appear greyed out for visual distinction.
 
-## Note: Minor UI alignment adjustments were made based on personal design preference.
+#Note: Minor UI alignment adjustments were made based on personal design preference.
 
 ## 🧱 Tech Stack
 
