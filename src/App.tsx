@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 const gaId = import.meta.env.VITE_GA_ID;
 function App() {
   return (
-    <div className="text-black font-open container mx-auto my-0">
+    <div className="text-black font-open xl:container xl:mx-auto xl:my-0">
       {gaId && (
         <Helmet>
           <script

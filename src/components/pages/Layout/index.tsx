@@ -42,7 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           ))}
         </div>
       </div>
-      <div className="p-0 md:p-14 w-full">{children}</div>
+      <div className="p-0 lg:p-12 xl:p-14 md:p-10 w-full">{children}</div>
     </div>
   );
 }

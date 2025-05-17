@@ -37,77 +37,75 @@ export default function CardTabBody() {
   }, [dispatch]);
 
   return (
-    <>
-      <div className="mt-7 md:mt-11">
-        <div className="mb-4">
-          {tabs.map((i) => (
-            <button
-              onClick={() => setActiveTab(i.code)}
-              key={i.code}
-              className={`text-sm pb-1 mr-8 ${
-                activeTab === i.code
-                  ? "font-AvenirNextDemi border-b-2 border-skyBlue1"
-                  : "AvenirNextRegular opacity-30"
-              }`}
-            >
-              {i.title}
-            </button>
-          ))}
-        </div>
-        <div className="md:border-2 md:drop-shadow-sm md:border-white1 md:rounded-md md:p-10">
-          {activeTab === "MY_DEBIT_CARDS" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <button
-                  className="flex justify-center items-center mt-0 ml-auto mr-0 md:pb-3 pb-4 md:px-0 px-2 md:pt-0 pt-1 -mb-3 md:mb-0 bg-white md:bg-transparent rounded-md"
-                  onClick={() => toggleCardNumber(!showCardNumber)}
-                >
-                  <img src={Eye} alt="Eye" />
-                  <span className="text-xs text-center text-green ml-1">
-                    {showCardNumber ? "Hide" : "Show"} Card Number
-                  </span>
-                </button>
-                {debitCardDetails.length > 0 && (
-                  <div className="-mx-2">
-                    <Carousel
-                      setActiveIndex={(i) =>
-                        dispatch(setCurrectCard(debitCardDetails[i].id))
-                      }
-                      items={debitCardDetails.map((i) => (
-                        <div className="relative px-2" key={i.id}>
-                          <div className="absolute top-0 bottom-0 left-0 right-0" />
-                          <VCard
-                            showCardNumber={showCardNumber}
-                            details={i}
-                            loading={cardLoader}
-                          />
-                        </div>
-                      ))}
-                    />
-                  </div>
-                )}
-                {currentCardDetails && (
-                  <div className="hidden md:block p-6 bg-pastelBlue mt-8 rounded-lg">
-                    <ActionComponent cardDetails={currentCardDetails} />
-                  </div>
-                )}
-              </div>
+    <div className="mt-7 md:mt-11">
+      <div className="mb-4">
+        {tabs.map((i) => (
+          <button
+            onClick={() => setActiveTab(i.code)}
+            key={i.code}
+            className={`text-sm pb-1 mr-8 ${
+              activeTab === i.code
+                ? "font-AvenirNextDemi border-b-2 border-skyBlue1"
+                : "AvenirNextRegular opacity-30"
+            }`}
+          >
+            {i.title}
+          </button>
+        ))}
+      </div>
+      <div className="md:border-2 md:drop-shadow-sm md:border-white1 md:rounded-md md:p-8 xl:p-10">
+        {activeTab === "MY_DEBIT_CARDS" && (
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
+            <div>
+              <button
+                className="flex justify-center items-center mt-0 ml-auto mr-0 md:pb-3 pb-4 md:px-0 px-2 md:pt-0 pt-1 -mb-3 md:mb-0 bg-white md:bg-transparent rounded-md"
+                onClick={() => toggleCardNumber(!showCardNumber)}
+              >
+                <img src={Eye} alt="Eye" />
+                <span className="text-xs text-center text-green ml-1">
+                  {showCardNumber ? "Hide" : "Show"} Card Number
+                </span>
+              </button>
+              {debitCardDetails.length > 0 && (
+                <div className="-mx-2">
+                  <Carousel
+                    setActiveIndex={(i) =>
+                      dispatch(setCurrectCard(debitCardDetails[i].id))
+                    }
+                    items={debitCardDetails.map((i) => (
+                      <div className="relative px-2" key={i.id}>
+                        <div className="absolute top-0 bottom-0 left-0 right-0 z-50" />
+                        <VCard
+                          showCardNumber={showCardNumber}
+                          details={i}
+                          loading={cardLoader}
+                        />
+                      </div>
+                    ))}
+                  />
+                </div>
+              )}
               {currentCardDetails && (
-                <div className="hidden md:block ">
-                  <CardDetails cardDetails={currentCardDetails} />
+                <div className="hidden md:block p-6 bg-pastelBlue mt-8 rounded-lg">
+                  <ActionComponent cardDetails={currentCardDetails} />
                 </div>
               )}
             </div>
-          )}
-          {activeTab === "ALL_COMPANY_CARDS" && (
-            <div className="flex flex-col">
-              <p className="text-sm text-center my-4 opacity-50">
-                You don’t have any cards yet
-              </p>
-            </div>
-          )}
-        </div>
+            {currentCardDetails && (
+              <div className="hidden md:block ">
+                <CardDetails cardDetails={currentCardDetails} />
+              </div>
+            )}
+          </div>
+        )}
+        {activeTab === "ALL_COMPANY_CARDS" && (
+          <div className="flex flex-col">
+            <p className="text-sm text-center my-4 opacity-50">
+              You don’t have any cards yet
+            </p>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 }
